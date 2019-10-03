@@ -402,6 +402,10 @@ WIN_CreateWindowFrom(_THIS, SDL_Window * window, const void *data)
     }
 
 #if SDL_VIDEO_OPENGL_WGL
+
+    // This forces the window to always try to use OpenGL
+    window->flags |= SDL_WINDOW_OPENGL;
+
     {
         const char *hint = SDL_GetHint(SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT);
         if (hint) {
